@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify OTP | Hobit</title>
+
+    <!-- Mobile viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gray-100 flex items-center justify-center px-4">
+
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
+
+        <!-- Logo & Brand -->
+        <div class="flex flex-col items-center mb-6">
+            <img 
+                src="@@BASE@@/public/assets/logo.png" 
+                alt="Hobit Logo"
+                class="h-14 mb-2"
+            />
+            <!--<h1 class="text-xl font-bold text-gray-800">Hobit</h1>-->
+            <p class="text-sm text-gray-500 text-center">
+                Secure OTP Verification
+            </p>
+        </div>
+
+        <!-- OTP Form -->
+        <form method="POST" class="space-y-4">
+            <input type="hidden" name="_token" value="@@TOKEN@@" autocomplete="off">
+            <label class="block text-sm font-medium text-gray-700">
+                Enter 6-digit OTP
+            </label>
+
+            <input
+                name="otp"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                maxlength="6"
+                placeholder="••••••"
+                class="w-full text-center text-lg tracking-widest border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-green-500 focus:outline-none"
+                required
+            >
+
+            <button
+                type="submit"
+                class="w-full bg-green-600 hover:bg-green-700 active:bg-green-800 text-white font-semibold py-3 rounded-lg transition"
+            >
+                Verify OTP
+            </button>
+
+                    @@ERRBLOCK@@</form>
+
+        <!-- Footer -->
+        <p class="text-xs text-gray-400 text-center mt-6">
+            Powered by Hobit 💚
+        </p>
+
+    </div>
+
+</body>
+</html>

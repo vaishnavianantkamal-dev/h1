@@ -1,0 +1,7 @@
+node_modules/
+.env
+storage/app/public/*
+!storage/app/public/.gitkeep
+public/uploads/*
+*.log
+firebase/*.json

@@ -1,0 +1,40 @@
+{
+  "name": "hobit-node",
+  "version": "1.0.0",
+  "description": "Hobit backend - Node.js / Express / MySQL (converted from Laravel)",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "db:setup": "node database/setup.js",
+    "db:fresh": "node database/setup.js --fresh",
+    "db:seed-services": "node database/seed-hobit1-services.js",
+    "smoke": "node tests/smoke.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "axios": "^1.7.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "firebase-admin": "^12.3.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.11.0",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.14",
+    "pdfkit": "^0.15.0",
+    "razorpay": "^2.9.4",
+    "sequelize": "^6.37.3"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.33.0"
+  }
+}

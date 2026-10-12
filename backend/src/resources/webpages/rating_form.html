@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rate Your Service | Hobit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
+
+        <!-- Logo -->
+        <div class="flex flex-col items-center mb-4">
+               <img 
+                src="@@BASE@@/public/assets/logo.png" 
+                alt="Hobit Logo"
+                class="h-14 mb-2"
+            />
+            <h1 class="text-2xl font-bold text-gray-800">Hobit</h1>
+            <p class="text-sm text-gray-500">Rate Your Experience</p>
+        </div>
+
+        <!-- Form -->
+        <form method="POST" class="space-y-4">
+            <input type="hidden" name="_token" value="@@TOKEN@@" autocomplete="off">
+            <!-- Stars -->
+            <div class="flex justify-center space-x-2">
+                                    <input 
+                        type="radio" 
+                        id="star5" 
+                        name="rating" 
+                        value="5" 
+                        class="hidden peer"
+                        required
+                    >
+                    <label 
+                        for="star5" 
+                        class="cursor-pointer text-3xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-400 transition"
+                    >
+                        ★
+                    </label>
+                                    <input 
+                        type="radio" 
+                        id="star4" 
+                        name="rating" 
+                        value="4" 
+                        class="hidden peer"
+                        required
+                    >
+                    <label 
+                        for="star4" 
+                        class="cursor-pointer text-3xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-400 transition"
+                    >
+                        ★
+                    </label>
+                                    <input 
+                        type="radio" 
+                        id="star3" 
+                        name="rating" 
+                        value="3" 
+                        class="hidden peer"
+                        required
+                    >
+                    <label 
+                        for="star3" 
+                        class="cursor-pointer text-3xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-400 transition"
+                    >
+                        ★
+                    </label>
+                                    <input 
+                        type="radio" 
+                        id="star2" 
+                        name="rating" 
+                        value="2" 
+                        class="hidden peer"
+                        required
+                    >
+                    <label 
+                        for="star2" 
+                        class="cursor-pointer text-3xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-400 transition"
+                    >
+                        ★
+                    </label>
+                                    <input 
+                        type="radio" 
+                        id="star1" 
+                        name="rating" 
+                        value="1" 
+                        class="hidden peer"
+                        required
+                    >
+                    <label 
+                        for="star1" 
+                        class="cursor-pointer text-3xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-400 transition"
+                    >
+                        ★
+                    </label>
+                            </div>
+
+            <p class="text-center text-sm text-gray-500">
+                Tap a star to rate
+            </p>
+
+            <!-- Feedback -->
+            <textarea 
+                name="description"
+                placeholder="Share your feedback (optional)"
+                class="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+                rows="3"
+            ></textarea>
+
+            <!-- Submit Button -->
+            <button 
+                type="submit"
+                class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 rounded-lg transition"
+            >
+                Submit Rating
+            </button>
+        </form>
+
+        <!-- Footer -->
+        <p class="text-center text-xs text-gray-400 mt-4">
+            Thank you for choosing Hobit 💚
+        </p>
+
+    </div>
+
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Rate Your Service</title>-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--    <style>-->
+<!--        body { font-family: Arial; background: #f9f9f9; padding: 20px; }-->
+<!--        .card { background: #fff; padding: 20px; border-radius: 10px; }-->
+<!--        .stars label { font-size: 30px; cursor: pointer; }-->
+<!--        textarea { width: 100%; height: 80px; }-->
+<!--        button { background: #25d366; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div class="card">-->
+<!--    <h2>Rate Your Experience ⭐</h2>-->
+
+<!--    <form method="POST">-->
+<!--        <input type="hidden" name="_token" value="@@TOKEN@@" autocomplete="off">-->
+
+<!--        <div class="stars">-->
+<!--            -->
+<!--                <label>-->
+<!--                    <input type="radio" name="rating" value="1" required> ⭐-->
+<!--                </label>-->
+<!--            -->
+<!--                <label>-->
+<!--                    <input type="radio" name="rating" value="2" required> ⭐-->
+<!--                </label>-->
+<!--            -->
+<!--                <label>-->
+<!--                    <input type="radio" name="rating" value="3" required> ⭐-->
+<!--                </label>-->
+<!--            -->
+<!--                <label>-->
+<!--                    <input type="radio" name="rating" value="4" required> ⭐-->
+<!--                </label>-->
+<!--            -->
+<!--                <label>-->
+<!--                    <input type="radio" name="rating" value="5" required> ⭐-->
+<!--                </label>-->
+<!--            -->
+<!--        </div>-->
+
+<!--        <br>-->
+
+<!--        <textarea name="description" placeholder="Optional feedback"></textarea>-->
+
+<!--        <br><br>-->
+
+<!--        <button type="submit">Submit Rating</button>-->
+<!--    </form>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->

@@ -1,0 +1,35 @@
+module.exports = (sequelize, DataTypes) => {
+  const MaidSurvey = sequelize.define('MaidSurvey', {
+    id: { type: DataTypes.BIGINT.UNSIGNED, primaryKey: true, autoIncrement: true },
+    supervisor_name: { type: DataTypes.STRING },
+    maid_name: { type: DataTypes.STRING, allowNull: false },
+    age: { type: DataTypes.INTEGER },
+    mobile_number: { type: DataTypes.STRING(15) },
+    address: { type: DataTypes.TEXT },
+    houses_count: { type: DataTypes.INTEGER },
+    buildings_count: { type: DataTypes.INTEGER },
+    family_members: { type: DataTypes.INTEGER },
+    only_earning_member: { type: DataTypes.STRING },
+    has_children: { type: DataTypes.STRING },
+    children_school: { type: DataTypes.STRING },
+    work_types: { type: DataTypes.JSON },
+    daily_work_hours: { type: DataTypes.INTEGER },
+    area_experience: { type: DataTypes.STRING },
+    charge_per_house: { type: DataTypes.STRING },
+    monthly_income: { type: DataTypes.INTEGER },
+    paid_on_time: { type: DataTypes.STRING },
+    holidays: { type: DataTypes.STRING },
+    paid_leave: { type: DataTypes.STRING },
+    has_smartphone: { type: DataTypes.STRING },
+    uses_whatsapp: { type: DataTypes.STRING },
+    uses_online_payment: { type: DataTypes.STRING },
+    salary_online: { type: DataTypes.STRING },
+    interested_extra_work_app: { type: DataTypes.STRING },
+    work_priority: { type: DataTypes.JSON },
+    feels_safe: { type: DataTypes.STRING },
+    interested_in_benefits: { type: DataTypes.STRING },
+  }, {
+    tableName: 'maid_surveys',
+  });
+  return MaidSurvey;
+};

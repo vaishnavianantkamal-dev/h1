@@ -1,0 +1,1187 @@
+{
+ "Addon": {
+  "file": "Addon.php",
+  "casts": {
+   "images": "array",
+   "status": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "AttendanceLog": {
+  "file": "AttendanceLog.php",
+  "casts": {
+   "date": "date",
+   "check_in_at": "datetime",
+   "check_out_at": "datetime",
+   "check_in_distance_m": "integer",
+   "check_out_distance_m": "integer"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Banner": {
+  "file": "Banner.php",
+  "casts": {
+   "is_active": "boolean",
+   "sort_order": "integer",
+   "start_date": "datetime",
+   "end_date": "datetime"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": true
+ },
+ "BlockedSlot": {
+  "file": "BlockedSlot.php",
+  "casts": {
+   "blocked_date": "date:Y-m-d"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Booking": {
+  "file": "Booking.php",
+  "casts": {
+   "worker_ids": "array",
+   "coordinator_ids": "array",
+   "rejected_worker_ids": "array",
+   "payment_attempted_at": "datetime",
+   "paid_at": "datetime",
+   "approved_at": "datetime",
+   "is_final": "boolean",
+   "amount": "decimal:2",
+   "platform_fee": "decimal:2",
+   "travelling_charge": "decimal:2",
+   "subscription_fee": "decimal:2",
+   "tax_amount": "decimal:2",
+   "bot_payload": "array",
+   "service_end_at": "datetime",
+   "end_reminder_15_sent_at": "datetime",
+   "cancellation_deducted_amount": "decimal:2",
+   "refund_amount": "decimal:2",
+   "cancelled_at": "datetime",
+   "cancellation_requested_at": "datetime",
+   "cancellation_reviewed_at": "datetime",
+   "discount_amount": "decimal:2",
+   "original_amount": "decimal:2",
+   "acceptance_requested_at": "datetime",
+   "accepted_at": "datetime",
+   "declined_at": "datetime",
+   "subscription_welcome_sent_at": "datetime"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "BookingAddon": {
+  "file": "BookingAddon.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "BookingAlert": {
+  "file": "BookingAlert.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "BookingExtension": {
+  "file": "BookingExtension.php",
+  "casts": {
+   "payment_attempted_at": "datetime",
+   "paid_at": "datetime",
+   "amount": "decimal:2"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "booking_extensions",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "BookingOtp": {
+  "file": "BookingOtp.php",
+  "casts": {
+   "expires_at": "datetime",
+   "verified_at": "datetime"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": false,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "BookingPause": {
+  "file": "BookingPause.php",
+  "casts": {
+   "pause_from": "date",
+   "pause_until": "date",
+   "extended_end_date": "date",
+   "pause_days": "integer",
+   "resumed_at": "datetime"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "BookingRating": {
+  "file": "BookingRating.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "BookingReassignment": {
+  "file": "BookingReassignment.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "BookingService": {
+  "file": "BookingService.php",
+  "casts": {
+   "is_addon": "boolean",
+   "last_completed_date": "date",
+   "expiry_reminder_sent_at": "datetime",
+   "expiry_expired_notice_sent_at": "datetime"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "BookingVisitOverride": {
+  "file": "BookingVisitOverride.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "City": {
+  "file": "City.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "App": {
+  "file": "Cms/App.php",
+  "casts": {
+   "google_status": "boolean",
+   "applestore_status": "boolean",
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "BookingInstruction": {
+  "file": "Cms/BookingInstruction.php",
+  "casts": {
+   "order": "integer",
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "booking_instructions",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "ChooseUs": {
+  "file": "Cms/ChooseUs.php",
+  "casts": {
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "choose_us",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Contact": {
+  "file": "Cms/Contact.php",
+  "casts": {
+   "emails": "array",
+   "phone_numbers": "array",
+   "whatsapp_numbers": "array",
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "EarnBanner": {
+  "file": "Cms/EarnBanner.php",
+  "casts": {
+   "amount": "decimal:2",
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "earn_banners",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Faq": {
+  "file": "Cms/Faq.php",
+  "casts": {
+   "cards": "array",
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Footer": {
+  "file": "Cms/Footer.php",
+  "casts": {
+   "company_links": "array",
+   "service_links": "array",
+   "footer_links": "array",
+   "is_active": "boolean",
+   "copyright_year": "integer"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "cms_footers",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Header": {
+  "file": "Cms/Header.php",
+  "casts": {
+   "marquee_status": "boolean",
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "cms_headers",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Hero": {
+  "file": "Cms/Hero.php",
+  "casts": {
+   "available_in": "array",
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "HowWork": {
+  "file": "Cms/HowWork.php",
+  "casts": {
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "how_works",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Mission": {
+  "file": "Cms/Mission.php",
+  "casts": {
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "SavingsPromoBanner": {
+  "file": "Cms/SavingsPromoBanner.php",
+  "casts": {
+   "images": "array",
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "savings_promo_banners",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "ServiceItem": {
+  "file": "Cms/ServiceItem.php",
+  "casts": {
+   "images": "array",
+   "is_active": "boolean",
+   "order": "integer"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "service_items",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "ServiceSection": {
+  "file": "Cms/ServiceSection.php",
+  "casts": {
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "SubscriptionBenefit": {
+  "file": "Cms/SubscriptionBenefit.php",
+  "casts": {
+   "order": "integer",
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "subscription_benefits",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "SubscriptionPolicy": {
+  "file": "Cms/SubscriptionPolicy.php",
+  "casts": {
+   "group_order": "integer",
+   "point_order": "integer",
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "subscription_policies",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Testimonial": {
+  "file": "Cms/Testimonial.php",
+  "casts": {
+   "is_active": "boolean",
+   "star": "integer"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "WhyChooseCard": {
+  "file": "Cms/WhyChooseCard.php",
+  "casts": {
+   "order": "integer",
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "why_choose_cards",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Working": {
+  "file": "Cms/Working.php",
+  "casts": {
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Commission": {
+  "file": "Commission.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "category_commissions",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "CommissionCalculate": {
+  "file": "CommissionCalculate.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "commissions",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Coupon": {
+  "file": "Coupon.php",
+  "casts": {
+   "value": "decimal:2",
+   "max_discount": "decimal:2",
+   "min_order_amount": "decimal:2",
+   "status": "boolean",
+   "starts_at": "datetime",
+   "expires_at": "datetime"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": true
+ },
+ "CouponUsage": {
+  "file": "CouponUsage.php",
+  "casts": {
+   "discount_amount": "decimal:2"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Customer": {
+  "file": "Customer.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": true
+ },
+ "CustomerAddress": {
+  "file": "CustomerAddress.php",
+  "casts": {
+   "is_default": "boolean",
+   "latitude": "decimal:7",
+   "longitude": "decimal:7",
+   "has_pets": "boolean",
+   "residents": "integer",
+   "bathrooms": "integer",
+   "balconies": "integer"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "customer_address",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "DeepCleaningEnquiry": {
+  "file": "DeepCleaningEnquiry.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "DeleteAccountRequest": {
+  "file": "DeleteAccountRequest.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "delete_account_requests",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "EmergencyAlert": {
+  "file": "EmergencyAlert.php",
+  "casts": {
+   "latitude": "float",
+   "longitude": "float",
+   "handled_at": "datetime"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Enquiry": {
+  "file": "Enquiry.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Event": {
+  "file": "Event.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "ExtraTimeFee": {
+  "file": "ExtraTimeFee.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "HomeCategory": {
+  "file": "HomeCategory.php",
+  "casts": {
+   "images": "array",
+   "status": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "home_categories",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "HomeCategoryDoDont": {
+  "file": "HomeCategoryDoDont.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "home_category_dos_donts",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "InstantHelpCard": {
+  "file": "InstantHelpCard.php",
+  "casts": {
+   "is_active": "boolean",
+   "start_date": "datetime",
+   "end_date": "datetime",
+   "start_hour": "integer",
+   "end_hour": "integer",
+   "priority": "integer"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": true
+ },
+ "MaidSurvey": {
+  "file": "MaidSurvey.php",
+  "casts": {
+   "work_types": "array",
+   "work_priority": "array"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Marquee": {
+  "file": "Marquee.php",
+  "casts": {
+   "status": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "marquees",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Notification": {
+  "file": "Notification.php",
+  "casts": {
+   "data": "array",
+   "is_read": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": true
+ },
+ "NotificationCampaign": {
+  "file": "NotificationCampaign.php",
+  "casts": {
+   "data": "array",
+   "is_active": "boolean",
+   "scheduled_at": "datetime",
+   "sent_at": "datetime"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "NotificationCampaignLog": {
+  "file": "NotificationCampaignLog.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "OtpVerification": {
+  "file": "OtpVerification.php",
+  "casts": {
+   "expires_at": "datetime"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Permission": {
+  "file": "Permission.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Pincode": {
+  "file": "Pincode.php",
+  "casts": {
+   "is_active": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": true
+ },
+ "Referral": {
+  "file": "Referral.php",
+  "casts": {
+   "created_at": "datetime",
+   "updated_at": "datetime"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "ResidentSurvey": {
+  "file": "ResidentSurvey.php",
+  "casts": {
+   "work_types": "array",
+   "problems_faced": "array",
+   "preferred_time_slots": "array",
+   "maid_source": "array",
+   "convincing_factors": "array"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Role": {
+  "file": "Role.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Service": {
+  "file": "Service.php",
+  "casts": {
+   "images": "array",
+   "icons": "array"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "ServiceableArea": {
+  "file": "ServiceableArea.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "ServiceCategory": {
+  "file": "ServiceCategory.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "ServiceDoDont": {
+  "file": "ServiceDoDont.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "service_dos_donts",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "ServiceEndAlert": {
+  "file": "ServiceEndAlert.php",
+  "casts": {
+   "data": "array",
+   "is_read": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "ServicePlan": {
+  "file": "ServicePlan.php",
+  "casts": {
+   "duration_days": "integer",
+   "price": "decimal:2",
+   "festival_price": "decimal:2",
+   "member_price": "decimal:2"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Setting": {
+  "file": "Setting.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "SubscriptionType": {
+  "file": "SubscriptionType.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "subscription_type",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "TimeSlot": {
+  "file": "TimeSlot.php",
+  "casts": {
+   "price": "float",
+   "is_active": "boolean",
+   "sort_order": "integer"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": true
+ },
+ "TrackingSession": {
+  "file": "TrackingSession.php",
+  "casts": {
+   "active": "boolean",
+   "ended_at": "datetime"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Transaction": {
+  "file": "Transaction.php",
+  "casts": {
+   "paid_at": "datetime"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "User": {
+  "file": "User.php",
+  "casts": {
+   "is_assigned": "boolean",
+   "category_ids": "array",
+   "service_ids": "array",
+   "images": "array"
+  },
+  "hidden": [
+   "password"
+  ],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": true
+ },
+ "UserFcmToken": {
+  "file": "UserFcmToken.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Worker": {
+  "file": "Worker.php",
+  "casts": {
+   "skills": "array",
+   "available_days": "array",
+   "available_time": "array",
+   "wallet_balance": "decimal:2",
+   "id_type": "array",
+   "id_number": "array",
+   "id_front_path": "array",
+   "id_back_path": "array"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "WorkerAvailability": {
+  "file": "WorkerAvailability.php",
+  "casts": {
+   "available_dates": "array",
+   "available_times": "array",
+   "status": "boolean"
+  },
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": "worker_availabilities",
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "WorkerKyc": {
+  "file": "WorkerKyc.php",
+  "casts": {
+   "raw_response": "array",
+   "verified_at": "datetime",
+   "dob": "date:Y-m-d"
+  },
+  "hidden": [
+   "photo_base64",
+   "raw_response"
+  ],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "WorkerLiveLocation": {
+  "file": "WorkerLiveLocation.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "WorkerLiveTrack": {
+  "file": "WorkerLiveTrack.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "WorkerWithdrawal": {
+  "file": "WorkerWithdrawal.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ },
+ "Zone": {
+  "file": "Zone.php",
+  "casts": {},
+  "hidden": [],
+  "dates": [],
+  "appends": [],
+  "visible": null,
+  "timestamps": true,
+  "table": null,
+  "dateFormat": null,
+  "softDeletes": false
+ }
+}
