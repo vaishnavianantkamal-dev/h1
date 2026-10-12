@@ -475,7 +475,7 @@ const Workers = () => {
       : null;
 
     const BASE_URL =
-      import.meta.env.VITE_API_BASE_URL || "https://hobitadmin.hobit.club";
+      import.meta.env.VITE_API_BASE_URL || "https://hobit-backend.onrender.com";
 
     const getFullUrl = (path) => {
       if (!path) return null;

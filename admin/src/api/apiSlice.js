@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const BASE_URL =
   import.meta.env.VITE_API_BASE_URL ||
-  (import.meta.env.DEV ? "" : "https://hobitadmin.hobit.club");
+  (import.meta.env.DEV ? "" : "https://hobit-backend.onrender.com");
 
 export const apiSlice = createApi({
   reducerPath: "api",

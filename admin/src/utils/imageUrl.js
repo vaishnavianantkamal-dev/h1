@@ -24,7 +24,7 @@ export const getImageUrl = (path) => {
     
     if (cleanPath.includes("storage/app/public/")) {
       const baseUrl =
-        import.meta.env.VITE_API_BASE_URL || "https://hobitadmin.hobit.club";
+        import.meta.env.VITE_API_BASE_URL || "https://hobit-backend.onrender.com";
       const cleanBaseUrl = baseUrl.replace(/\/$/, "");
 
       const idx = cleanPath.indexOf("storage/app/public/");
@@ -40,7 +40,7 @@ export const getImageUrl = (path) => {
   }
 
   const baseUrl =
-    import.meta.env.VITE_API_BASE_URL || "https://hobitadmin.hobit.club";
+    import.meta.env.VITE_API_BASE_URL || "https://hobit-backend.onrender.com";
   const cleanBaseUrl = baseUrl.replace(/\/$/, "");
 
   let finalUrl = "";
