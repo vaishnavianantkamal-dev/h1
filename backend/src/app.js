@@ -52,6 +52,15 @@ app.get('/up', (req, res) => {
   res.status(200).set('Content-Type', 'text/html; charset=utf-8').end(html);
 });
 app.use('/api', require('./middleware/routeGuards'), routes.api);
+// Compatibility aliases for clients requesting /worker/* or /customer/* without /api
+app.use('/worker', (req, res, next) => {
+  req.url = '/worker' + req.url;
+  routes.api(req, res, next);
+});
+app.use('/customer', (req, res, next) => {
+  req.url = '/customer' + req.url;
+  routes.api(req, res, next);
+});
 app.use('/', routes.web);
 
 app.use(notFound);

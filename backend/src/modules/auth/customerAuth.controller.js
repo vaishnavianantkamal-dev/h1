@@ -28,11 +28,14 @@ const randomString = (n) => {
   return s;
 };
 
+const cleanPhone = (p) => String(p || '').replace(/\D/g, '').slice(-10);
+const cleanOtp = (o) => String(o || '').trim();
+
 // Check if the phone is the hardcoded static test number.
-const isStaticPhone = (phone) => config.staticLoginEnabled && phone === STATIC_PHONE;
+const isStaticPhone = (phone) => config.staticLoginEnabled && cleanPhone(phone) === STATIC_PHONE;
 
 // Check if phone + OTP match the hardcoded static credentials.
-const isStaticLogin = (phone, otp) => config.staticLoginEnabled && phone === STATIC_PHONE && otp === STATIC_OTP;
+const isStaticLogin = (phone, otp) => config.staticLoginEnabled && cleanPhone(phone) === STATIC_PHONE && cleanOtp(otp) === STATIC_OTP;
 
 const phoneTypes = ['whatsapp', 'sms'];
 
@@ -140,6 +143,16 @@ module.exports = {
 
     // STATIC PHONE: return fake success without sending anything
     if (isStaticPhone(req.input('phone'))) {
+      const otpRow = await OtpVerification.findOne({ where: { phone: STATIC_PHONE } });
+      const values = {
+        otp: STATIC_OTP,
+        expires_at: dayjs().add(1, 'year').format(DT),
+        attempts: 0,
+        ip_address: String(req.ip || '').replace(/^::ffff:/, ''),
+      };
+      if (otpRow) await otpRow.update(values);
+      else await OtpVerification.create({ phone: STATIC_PHONE, ...values });
+
       return res.json({
         status: true,
         message: `OTP sent successfully via ${sendVia}`,
@@ -248,16 +261,18 @@ module.exports = {
       const [user, isNewUser] = await User.findOrCreate({
         where: { phone: STATIC_PHONE },
         defaults: {
-          name: null,
+          name: 'Test Customer',
           email: STATIC_EMAIL,
           role_id: customerRoleId,
-          password: hash.make(randomString(32)),
+          password: hash.make('123456'),
           is_active: true,
+          is_phone_verified: true,
         },
       });
 
       if (Number(user.role_id) !== Number(customerRoleId)) return res.status(403).json({ status: false, message: 'This number cannot use static login.' });
 
+      await user.update({ is_active: true, is_phone_verified: true });
       await Customer.findOrCreate({ where: { user_id: user.id } });
 
       if (req.filled('name') && !user.name) {

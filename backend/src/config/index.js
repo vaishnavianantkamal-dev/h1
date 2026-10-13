@@ -15,8 +15,8 @@ module.exports = {
   botApiKey: env.BOT_API_KEY || '', // WhatsApp bot -> /api/bot/* and /api/whatsapp/send*
   runScheduler: env.RUN_SCHEDULER !== 'false',
   // Hard-coded Play-Store review logins (customer 9999999999 / worker 8888888888, OTP 123456).
-  // OFF in production unless STATIC_LOGIN_ENABLED=true; ON in development unless STATIC_LOGIN_ENABLED=false.
-  staticLoginEnabled: env.STATIC_LOGIN_ENABLED === 'true' || ((env.NODE_ENV || 'development') !== 'production' && env.STATIC_LOGIN_ENABLED !== 'false'),
+  // Active by default unless explicitly disabled with STATIC_LOGIN_ENABLED=false.
+  staticLoginEnabled: env.STATIC_LOGIN_ENABLED !== 'false',
   corsOrigins: [
     'http://localhost:5173', 'http://localhost:5174',
     'https://hobitadmin.anantkamalsoftwarelabs.com', 'https://admin.hobit.club',

@@ -108,7 +108,7 @@ async function ensureDatabase() {
 
 (async () => {
   await ensureDatabase();
-  const { sequelize, Role, Permission, Setting, TimeSlot, SubscriptionType, NotificationCampaign, User } = require('../src/models');
+  const { sequelize, Role, Permission, Setting, TimeSlot, SubscriptionType, NotificationCampaign, User, Customer, Worker, WorkerAvailability, OtpVerification } = require('../src/models');
   const hash = require('../src/utils/hash');
   await sequelize.authenticate();
 
@@ -162,6 +162,82 @@ async function ensureDatabase() {
     }
   }
   console.log(adminLine);
+
+  // Seed Customer (9999999999, OTP 123456)
+  const custRole = await Role.findOne({ where: { slug: 'customers' } });
+  const [custUser] = await User.findOrCreate({
+    where: { phone: '9999999999' },
+    defaults: {
+      role_id: custRole.id,
+      name: 'Test Customer',
+      phone: '9999999999',
+      email: 'testcustomer@example.com',
+      password: hash.make('123456'),
+      is_active: true,
+      is_phone_verified: true,
+      referral_code: 'CUST9999',
+    },
+  });
+  await Customer.findOrCreate({ where: { user_id: custUser.id }, defaults: { user_id: custUser.id, address: 'Test Address, Pune' } });
+  await OtpVerification.upsert({
+    phone: '9999999999',
+    otp: '123456',
+    expires_at: '2099-12-31 23:59:59',
+    attempts: 0,
+  });
+  console.log('[setup] seeded customer: 9999999999 (OTP 123456)');
+
+  // Seed Worker (8888888888, OTP 123456)
+  const workerRole = await Role.findOne({ where: { slug: 'workers' } });
+  const [workerUser] = await User.findOrCreate({
+    where: { phone: '8888888888' },
+    defaults: {
+      role_id: workerRole.id,
+      name: 'Test Worker',
+      phone: '8888888888',
+      email: 'testworker@example.com',
+      password: hash.make('123456'),
+      is_active: true,
+      is_phone_verified: true,
+      category_ids: [1, 2, 6],
+      service_ids: [2, 26, 30, 31],
+      city_id: 1,
+    },
+  });
+  await Worker.findOrCreate({
+    where: { user_id: workerUser.id },
+    defaults: {
+      user_id: workerUser.id,
+      full_name: 'Test Worker',
+      phone: '8888888888',
+      kyc_status: 'approved',
+      wallet_balance: 1000.00,
+    },
+  });
+  const defaultDates = [];
+  const startD = new Date();
+  for (let i = 0; i <= 365; i++) {
+    const d = new Date(startD);
+    d.setDate(d.getDate() + i);
+    defaultDates.push(d.toISOString().slice(0, 10));
+  }
+  await WorkerAvailability.findOrCreate({
+    where: { worker_id: workerUser.id },
+    defaults: {
+      worker_id: workerUser.id,
+      available_dates: defaultDates,
+      available_times: [{ start: '09:00', end: '18:00' }],
+      status: true,
+    },
+  });
+  await OtpVerification.upsert({
+    phone: '8888888888',
+    otp: '123456',
+    expires_at: '2099-12-31 23:59:59',
+    attempts: 0,
+  });
+  console.log('[setup] seeded worker: 8888888888 (OTP 123456)');
+
   console.log('[setup] done. Next: create cities, zones, service categories and services from the admin panel.');
   process.exit(0);
 })().catch((e) => { console.error('[setup] FAILED:', e.message); process.exit(1); });

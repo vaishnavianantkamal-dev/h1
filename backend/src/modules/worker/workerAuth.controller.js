@@ -17,8 +17,11 @@ const otpService = require('../../services/OtpService');
 const STATIC_PHONE = '8888888888';
 const STATIC_OTP = '123456';
 
-const isStaticPhone = (phone) => config.staticLoginEnabled && String(phone) === STATIC_PHONE;
-const isStaticLogin = (phone, otp) => config.staticLoginEnabled && String(phone) === STATIC_PHONE && String(otp) === STATIC_OTP;
+const cleanPhone = (p) => String(p || '').replace(/\D/g, '').slice(-10);
+const cleanOtp = (o) => String(o || '').trim();
+
+const isStaticPhone = (phone) => config.staticLoginEnabled && cleanPhone(phone) === STATIC_PHONE;
+const isStaticLogin = (phone, otp) => config.staticLoginEnabled && cleanPhone(phone) === STATIC_PHONE && cleanOtp(otp) === STATIC_OTP;
 
 // $user->hasRole($slug) (works whether or not the role relation is loaded)
 async function roleSlugOf(user) {
@@ -406,6 +409,11 @@ const ctrl = {
 
     // STATIC PHONE: return fake success without sending anything (unchanged)
     if (isStaticPhone(req.input('phone'))) {
+      await updateOrCreate(OtpVerification, { phone: STATIC_PHONE }, {
+        otp: STATIC_OTP,
+        expires_at: dayjs().add(1, 'year').format('YYYY-MM-DD HH:mm:ss'),
+        attempts: 0,
+      }).catch(() => {});
       return res.json({ status: true, message: 'OTP sent successfully via ' + (sendVia ?? '') });
     }
 
@@ -443,13 +451,36 @@ const ctrl = {
           name: 'Test Worker',
           email: 'testworker@example.com',
           role_id: workerRoleId,
-          password: hash.make(randomStr(32)),
+          password: hash.make('123456'),
           is_active: true,
+          is_phone_verified: true,
+          category_ids: [1, 2, 6],
+          service_ids: [2, 26, 30, 31],
+          city_id: 1,
         });
+      } else {
+        await workerUser.update({ is_active: true, is_phone_verified: true });
       }
       if (Number(workerUser.role_id) !== Number(workerRoleId)) return res.status(403).json({ status: false, message: 'This number cannot use static login.' });
-      const existingWorker = await Worker.findOne({ where: { user_id: workerUser.id } });
-      if (!existingWorker) await Worker.create({ user_id: workerUser.id, kyc_status: 'approved' });
+      let existingWorker = await Worker.findOne({ where: { user_id: workerUser.id } });
+      if (!existingWorker) {
+        existingWorker = await Worker.create({
+          user_id: workerUser.id,
+          full_name: 'Test Worker',
+          phone: STATIC_PHONE,
+          kyc_status: 'approved',
+          wallet_balance: 1000.00,
+        });
+      } else if (existingWorker.kyc_status !== 'approved') {
+        await existingWorker.update({ kyc_status: 'approved' });
+      }
+
+      const defaultAvail = defaultAvailabilityForOneYear();
+      await updateOrCreate(WorkerAvailability, { worker_id: workerUser.id }, {
+        available_dates: defaultAvail.available_dates,
+        available_times: defaultAvail.available_times,
+        status: true,
+      });
 
       return res.json({
         status: true,
